@@ -34,5 +34,5 @@ uploadArchives {
 }
 
 artifacts {
-    archives file('build/outputs/aar/library-release.aar'), name: 'library', type: 'aar', extension: 'aar'
+    archives file(new File(buildDir, 'outputs/aar/library-release.aar'))
 }
