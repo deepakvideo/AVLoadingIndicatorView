@@ -23,7 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-// Configure legacy Maven upload to recognize the Android release build output
 uploadArchives {
     repositories {
         mavenDeployer {
@@ -31,8 +30,4 @@ uploadArchives {
             pom.artifactId = 'library'
         }
     }
-}
-
-artifacts {
-    archives file(new File(buildDir, 'outputs/aar/library-release.aar'))
 }
