@@ -22,17 +22,3 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
-
-publishing {
-    publications {
-        release(MavenPublication) {
-            // publish the release variant of your library
-            afterEvaluate {
-                from components.release
-            }
-            groupId = 'com.diws.train'      // change to your package/group
-            artifactId = 'your-library'     // change to your library name
-            version = android.defaultConfig.versionName
-        }
-    }
-}
