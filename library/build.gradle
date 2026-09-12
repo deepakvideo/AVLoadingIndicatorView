@@ -23,7 +23,16 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-// Explicitly bind the Android release AAR to the Maven upload task so JitPack finds it
+// Configure legacy Maven upload to recognize the Android release build output
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file://${project.hasProperty('mavenRepo') ? mavenRepo : "$rootDir/repo"}")
+            pom.artifactId = 'library'
+        }
+    }
+}
+
 artifacts {
-    archives file: file('build/outputs/aar/library-release.aar'), name: 'library', type: 'aar', extension: 'aar'
+    archives file('build/outputs/aar/library-release.aar'), name: 'library', type: 'aar', extension: 'aar'
 }
